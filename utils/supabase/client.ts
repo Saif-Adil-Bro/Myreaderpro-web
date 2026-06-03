@@ -6,8 +6,8 @@ import { createBrowserClient } from '@supabase/ssr'
  * for user authentication headers.
  */
 export function createClient() {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder-url.supabase.co'
-  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-anon-key'
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://phkjmdmjmoxpdduoyfxp.supabase.co'
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_tMNtA0sQs4o3m8iXr2meqg_dIRjCaIN'
 
   return createBrowserClient(
     supabaseUrl,
