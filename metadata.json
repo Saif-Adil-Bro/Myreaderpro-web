@@ -1,6 +1,6 @@
 {
   "name": "MyReaderPro",
-  "description": "Digital library for Islamic books and Bangla articles",
+  "description": "A premium, distraction-free digital e-book reader with advanced categorization, local library tracking, personal analytics, and beautiful reading modes.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

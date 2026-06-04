@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "826579536866",
+    "project_id": "myreaderpro",
+    "storage_bucket": "myreaderpro.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:826579536866:android:3746587ededad01dcf47bb",
+        "android_client_info": {
+          "package_name": "com.myreaderpro.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-nIdDIwOVY2vLBOXZ6r1TbGauofqYlNE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

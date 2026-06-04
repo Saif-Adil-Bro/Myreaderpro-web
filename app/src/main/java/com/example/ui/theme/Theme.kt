@@ -9,33 +9,50 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.graphics.Color
 
 private val DarkColorScheme =
   darkColorScheme(
-    primary = PrimaryGreen,
-    secondary = AccentGreen,
-    tertiary = CardBgAlt,
-    background = DarkBg,
-    surface = CardBg,
-    onPrimary = Color.Black,
-    onSecondary = Color.White,
-    onBackground = TextPrimary,
-    onSurface = TextPrimary,
-    surfaceVariant = CardBgAlt,
-    onSurfaceVariant = TextSecondary,
-    outline = TextMuted,
+    primary = TealPrimary,
+    secondary = TealLight,
+    tertiary = OrangeAccent,
+    background = CharcoalBg,
+    surface = CardDark,
+    onPrimary = TextLight,
+    onSecondary = CharcoalBg,
+    onBackground = TextLight,
+    onSurface = TextLight
   )
 
-private val LightColorScheme = DarkColorScheme // Standardize on dark theme for Sophisticated Dark aesthetic
+private val LightColorScheme =
+  lightColorScheme(
+    primary = TealPrimary,
+    secondary = TealDark,
+    tertiary = OrangeAccent,
+    background = LightBg,
+    surface = CardLight,
+    onPrimary = LightBg,
+    onSecondary = LightBg,
+    onBackground = TextDark,
+    onSurface = TextDark
+  )
 
 @Composable
 fun MyApplicationTheme(
-  darkTheme: Boolean = true, // Force dark theme by default for Sophisticated Dark
-  dynamicColor: Boolean = false, // Disable dynamic color to preserve custom Sophisticated Dark branding
+  darkTheme: Boolean = isSystemInDarkTheme(),
+  // Dynamic color is available on Android 12+
+  dynamicColor: Boolean = true,
   content: @Composable () -> Unit,
 ) {
-  val colorScheme = if (darkTheme) DarkColorScheme else DarkColorScheme
+  val colorScheme =
+    when {
+      dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+        val context = LocalContext.current
+        if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+      }
+
+      darkTheme -> DarkColorScheme
+      else -> LightColorScheme
+    }
 
   MaterialTheme(colorScheme = colorScheme, typography = Typography, content = content)
 }
